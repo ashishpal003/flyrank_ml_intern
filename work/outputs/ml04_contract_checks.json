@@ -1,0 +1,71 @@
+{
+  "decision_date": "2026-03-01",
+  "feature_window": [
+    "2025-12-01",
+    "2026-03-01"
+  ],
+  "label_window": [
+    "2026-03-01",
+    "2026-03-31"
+  ],
+  "row_counts": {
+    "dim_clients": 104,
+    "dim_content": 519606,
+    "fact_daily": 78835655,
+    "fact_query_90d": 2414248
+  },
+  "row_counts_match": true,
+  "grain_duplicate_keys": 0,
+  "report_date_min": "2025-01-27 00:00:00",
+  "report_date_max": "2026-06-30 00:00:00",
+  "panel": {
+    "clients": 104,
+    "lt_90d_before_D": 28,
+    "lt_6_months_total": 27
+  },
+  "missingness_by_content_type": [
+    {
+      "content_type": "keyword article",
+      "n": 459174,
+      "null_search_volume": 0.186,
+      "null_word_count": 0.381
+    },
+    {
+      "content_type": "feedly article",
+      "n": 57024,
+      "null_search_volume": 1.0,
+      "null_word_count": 0.051
+    },
+    {
+      "content_type": "comparison article",
+      "n": 3408,
+      "null_search_volume": 0.001,
+      "null_word_count": 0.001
+    }
+  ],
+  "ga4_flag_distribution": {
+    "False": 6408671,
+    "NULL": 3018741,
+    "True": 413966
+  },
+  "query_table": {
+    "win_start": "2026-04-02 00:00:00",
+    "win_end": "2026-06-30 00:00:00",
+    "distinct_windows": "1",
+    "rows": 2414248,
+    "content_items": 133852
+  },
+  "last_optimized_known_at_D_pct": 0.0,
+  "registration": {
+    "content_in_window": 321546,
+    "first_seen_after_start": 72851,
+    "pct_after_start": 22.66
+  },
+  "eligibility_funnel": {
+    "content_in_feature_window": 321546,
+    "after_volume_floor(imp_last30>=100)": 81521,
+    "after_client_history(>=90d before D)": 73326,
+    "after_exclude_freefall": 60265
+  },
+  "label_base_rate": 0.0717
+}
