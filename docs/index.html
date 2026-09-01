@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Which content pages will lose organic search traffic next month?</title>
+<meta name="description" content="A client-grouped, leakage-audited ranker for a monthly content-review queue, evaluated on FlyRank's search warehouse — with one sealed month and an honest verdict.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:#eef0ec;color:#161a22;
+    font:17px/1.62 'Source Serif 4',Georgia,serif}
+  .wrap{max-width:820px;margin:0 auto;padding:0 22px 80px;background:#fdfdfb;
+    box-shadow:0 12px 50px rgba(0,0,0,.10)}
+  @media(min-width:900px){.wrap{padding:0 56px 90px}}
+
+  header{border-bottom:2px solid #161a22;padding:44px 0 20px;margin-bottom:8px}
+  .venue{font:600 11.5px/1.5 Inter,system-ui,sans-serif;letter-spacing:.13em;color:#5a6472;margin:0 0 14px}
+  h1{font:700 26px/1.28 'Source Serif 4',Georgia,serif;margin:0 0 12px;letter-spacing:-.01em}
+  @media(min-width:700px){h1{font-size:30px}}
+  .byline{font:14px/1.55 Inter,system-ui,sans-serif;color:#5a6472;margin:0}
+  .byline a{color:#0d2a5e}
+
+  h2{font:700 20px/1.3 'Source Serif 4',Georgia,serif;margin:34px 0 10px;color:#0d2a5e;
+    padding-top:8px}
+  h3{font:700 16px/1.3 'Source Serif 4',Georgia,serif;margin:20px 0 6px}
+  p{margin:0 0 13px;text-align:justify;hyphens:auto}
+  ul,ol{margin:0 0 13px;padding-left:24px}
+  li{margin-bottom:7px}
+  a{color:#0d2a5e}
+  b,strong{font-weight:700}
+  code{font:14px 'Space Mono',ui-monospace,monospace;background:#eef1f6;padding:1px 5px;border-radius:4px}
+  pre{font:12.5px/1.6 'Space Mono',ui-monospace,monospace;background:#f2f4f0;border:1px solid #e0e4da;
+    padding:12px 14px;overflow-x:auto;margin:0 0 14px;border-radius:4px}
+
+  .abstract{background:#f2f4f0;border-left:3px solid #0d2a5e;padding:16px 20px;margin:18px 0}
+  .abstract h2{margin:0 0 8px;font-size:16px;color:#161a22;padding-top:0}
+  .abstract p{font-size:15.5px;margin:0;text-align:left}
+
+  .boxes{display:grid;gap:14px;margin:16px 0 8px}
+  @media(min-width:700px){.boxes{grid-template-columns:1fr 1fr}}
+  aside{border:1px solid #dfe3dd;border-radius:6px;padding:14px 16px;background:#fff}
+  aside h3{margin:0 0 6px;font:700 12px Inter,system-ui,sans-serif;letter-spacing:.06em;
+    text-transform:uppercase;color:#5a6472}
+  aside p{font:14.5px/1.55 Inter,system-ui,sans-serif;margin:0;text-align:left}
+
+  table{width:100%;border-collapse:collapse;font:13.5px/1.45 Inter,system-ui,sans-serif;margin:14px 0 20px}
+  caption{caption-side:top;text-align:left;font:13px/1.5 Inter,system-ui,sans-serif;color:#3a4353;padding-bottom:8px}
+  th{border-top:2px solid #161a22;border-bottom:1px solid #161a22;text-align:left;padding:6px 9px;font-weight:600}
+  td{border-bottom:1px solid #d8dce3;padding:6px 9px;vertical-align:top}
+  tbody tr:last-child td{border-bottom:2px solid #161a22}
+  .num{text-align:right;font-variant-numeric:tabular-nums}
+
+  figure{margin:20px 0 22px;padding:14px;border:1px solid #e3e7ee;background:#fff}
+  figure img{width:100%;height:auto;display:block}
+  figcaption{font:13.5px/1.55 Inter,system-ui,sans-serif;color:#3a4353;margin-top:10px}
+
+  .ack{margin-top:30px;border-top:1px solid #d8dce3;padding-top:16px}
+  .ack h2{font-size:16px}
+  .ack p,.ack li{font:14.5px/1.55 Inter,system-ui,sans-serif}
+  .verdict{background:#0d2a5e;color:#fff;padding:14px 18px;border-radius:6px;margin:18px 0;
+    font:600 15.5px/1.5 Inter,system-ui,sans-serif}
+  .verdict b{color:#a7f3c9}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <p class="venue">FLYRANK ML INTERNSHIP CAPSTONE &middot; APPLIED SEARCH INTELLIGENCE</p>
+  <h1>Which content pages will lose organic search traffic next month? A client-grouped, sealed-month evaluation of a decision-support ranker</h1>
+  <p class="byline">Ashish Pal &middot; 1 September 2026 &middot; lane: decline early-warning (Freestyle B) &middot;
+  <a href="https://github.com/ashishpal003/flyrank_ml_intern">source repository &amp; executed notebooks</a></p>
+</header>
+
+<section class="abstract">
+  <h2>Abstract</h2>
+  <p><b>Problem.</b> A FlyRank content strategist has time to review a few dozen pages per client each week; the practical
+  question is not "will this page decline?" but "which pages should a person open first, and in what order?"
+  <b>Data.</b> The FlyRank internship warehouse &mdash; ~78.8M pseudonymised daily search rows, 104 clients, 519,606 content
+  items, 2025-01-27 to 2026-06-30 &mdash; evaluated at decision date 2026-03-01 on 58,583 eligible pages across 23 clients
+  (label base rate 0.045). <b>Method.</b> A frozen transparent hand-rule as the baseline; logistic-regression and
+  random-forest rankers on ~39 features knowable strictly before the decision date; grouped 5-fold cross-validation by
+  client, a two-month walk-forward, one blind month, and a planted-leak audit. <b>Evidence.</b> The learned rankers
+  roughly double the hand-rule on grouped cross-validation (average precision 0.15 vs 0.09; random 0.08), and on the sealed
+  June 2026 month the random forest reaches average precision 0.44 &mdash; above random (0.34) and the frozen rule (0.39)
+  but only level with a one-line "already-dipping" heuristic (0.44); the label base rate is non-stationary, moving 0.045 to
+  0.345 over four months. <b>Scope.</b> One content operation, one 17-month snapshot, GSC-visible pages only, churn-censored
+  population, no causal design &mdash; this is decision-support ranking of human review effort, not a per-page prediction
+  and not evidence that a refresh changes an outcome.</p>
+</section>
+
+<div class="boxes">
+  <aside>
+    <h3>For hiring managers</h3>
+    <p>I built a client-grouped, leakage-audited ranker that orders a monthly content-review queue for organic-search
+    decline, on a ~79M-row search warehouse (104 pseudonymised clients, 17 months), with a frozen hand-rule as the
+    baseline to beat. Under grouped 5-fold cross-validation and one blind month it beat the hand-rule and random ordering
+    on average precision (0.44 vs 0.39 and 0.34 on the sealed month), though it only tied a one-line heuristic and the
+    label's base rate proved non-stationary. The deliverable is an action playbook &mdash; ranked queue, reason codes,
+    confidence tiers, an 8-item no-go list, a drift-alarm monitor &mdash; with the honest conclusion that the ordering is
+    worth testing as decision support but automating actions is not supported.</p>
+  </aside>
+  <aside>
+    <h3>For SEO practitioners</h3>
+    <p>Ranking pages by "biggest recent traffic drop" to decide what to fix first scored <b>below random</b> here &mdash;
+    it is mean reversion. A model that weighs position drift, reach thinning and softening traffic <i>together</i> does
+    modestly better, but only as a <b>review-queue order</b>, never as automation, and only if you re-check the label base
+    rate every month &mdash; it swung from 5% to 35% of eligible pages declining in one quarter.</p>
+  </aside>
+</div>
+
+<section>
+  <h2>1&nbsp;&nbsp;Introduction and claims</h2>
+  <p>A content strategist opens their weekly queue for a client account. It lists fifty pages, ordered; for each, a short
+  reason ("position slipping, reach thinning") and a suggested action. They work down the list, open each page, check the
+  reason against the trend they see, and decide whether to refresh it. The queue supplies the <i>order</i> and the
+  <i>evidence</i> &mdash; not the edit. This paper reports a ranker for that queue and evaluates it the way it would be
+  used: grouped by client, walked forward in time, and finally tested once on a sealed month.</p>
+  <ol>
+    <li><b>C1.</b> Under honest evaluation &mdash; grouped 5-fold cross-validation by client &mdash; a leakage-audited
+    logistic-regression / random-forest ranker orders the queue better than a frozen transparent rule and better than
+    random (average precision ~0.15 vs ~0.09 and ~0.08; base rate 0.045).</li>
+    <li><b>C2.</b> On a single sealed month (June 2026, read once) the random forest beats random and the frozen rule
+    (average precision 0.44 vs 0.34 and 0.39) but <i>does not beat</i> a one-line "already-dipping" heuristic (0.44).</li>
+    <li><b>C3.</b> The label base rate is not stationary (0.045 to 0.345 across four months); a monthly outcome-drift
+    check is a prerequisite for any deployment, and precision@K is not comparable across months without it.</li>
+  </ol>
+</section>
+
+<section>
+  <h2>2&nbsp;&nbsp;Data and task</h2>
+  <p><b>Source and period.</b> The FlyRank internship warehouse (hosted Parquet, queried in place with DuckDB, never
+  downloaded): ~78.8M daily fact rows, 104 clients, 519,606 content items, 2025-01-27 to 2026-06-30. One row of the
+  analysis is one (content page &times; monthly decision date). The decision date is <b>D = 2026-03-01</b>; features are
+  aggregated over <code>[D&minus;90d, D)</code>, the label over <code>[D, D+30d]</code> &mdash; strictly non-overlapping.</p>
+  <p><b>Label.</b> <code>label_decline = 1</code> if the page's impressions over the 30-day label window run below 75% of
+  its trailing-90-day pace <i>and</i> the second half of the label month is no higher than the first (a sustained decline,
+  not a one-day spike). It is an observed outcome measured in a window strictly after every feature.</p>
+  <p><b>Eligibility.</b> A page needs &ge; 100 search impressions in the prior 30 days (a volume floor &mdash; a page going
+  60 to 30 impressions is "&minus;50%" but meaningless); its client needs &ge; 90 days of history before D; pages already
+  in freefall are excluded (that is a recovery problem, out of scope). The funnel: 321,546 pages in the feature window
+  &rarr; 81,521 (volume floor) &rarr; 73,326 (client history) &rarr; 60,265.</p>
+  <p><b>The label-quality fix.</b> Three clients stopped reporting after February; every one of their pages therefore had
+  zero label-window impressions and was auto-labelled <i>declined</i> &mdash; panel dropout, not a real decline, and it
+  was inflating the baseline's score. Removing them: 60,265 &rarr; <b>58,583 pages / 23 clients</b>, base rate 0.072 &rarr;
+  <b>0.045</b>. This exclusion uses information from the outcome window &mdash; a churn-censoring choice, disclosed in
+  Limitations; results describe surviving portfolios.</p>
+  <p><b>Excluded on purpose.</b> <code>trend_direction</code> / <code>trend_pct</code> / <code>is_declining_label</code>
+  (the label is derived from them); any column whose window overlaps the label; the query-level table (its single fixed
+  90-day window sits after every development decision date); FlyRank product flags (<code>health_score</code>,
+  <code>priority_score</code>, <code>action_type</code> &mdash; not shipped, and decision-derived); GA4 columns (only ~4%
+  of rows carry real GA4 data); <code>last_optimized_date</code> (populated only from ~2026-04). IDs are pseudonyms used
+  for grouping only. No client names, domains, URLs, page titles or raw queries appear anywhere in the artifacts.</p>
+</section>
+
+<section>
+  <h2>3&nbsp;&nbsp;Baseline and models</h2>
+  <p><b>Frozen baseline.</b> A transparent hand-rule: <code>0.40&middot;traffic_softening + 0.30&middot;position_slip +
+  0.30&middot;reach_thinning</code>, each component a 0&ndash;1 percentile rank, no fitted weights. A fourth candidate
+  &mdash; page visibility &mdash; was dropped before freezing because a signal check showed bigger pages declined
+  <i>less</i> in this data. It is a fair comparison: scored on the same eligible slice, the same forward label, the same
+  metric, and re-scored on the same grouped-CV test folds as the models.</p>
+  <p><b>Models.</b> Simplest to strongest: a majority-class dummy, logistic regression (scaled,
+  <code>class_weight="balanced"</code>), a depth-3 decision tree, and a random forest (200 trees, depth 10,
+  <code>min_samples_leaf=25</code>, <code>class_weight="balanced_subsample"</code>). All <code>random_state=42</code>.</p>
+  <p><b>Features (~39, all pre-decision).</b> GSC feature-window aggregates (impressions, clicks, impression-weighted
+  position, impression-days) and engineered ratios (softening ratio, position gap, reach ratio); static content metadata
+  (age, word and character count, content type, competition), each with a <code>has_*</code> missingness flag &mdash;
+  ML-04 showed missingness tracks content type, so a blind fill would encode the category.</p>
+</section>
+
+<section>
+  <h2>4&nbsp;&nbsp;Experimental design</h2>
+  <p><b>Grouped 5-fold cross-validation on <code>client_hash_id</code></b> (seed 42) &mdash; a client's pages never span
+  train and test, so a model cannot memorise a client's quirks and have it counted as skill. A random 5-fold split is run
+  alongside; the gap between the two is itself a measurement of memorisation. A two-month walk-forward trains the model
+  once at D = 2026-03-01 and evaluates it unchanged at 2026-04-01 and 2026-05-01. One sealed month (June 2026) is read
+  exactly once, by a single notebook cell (<code>w06_validation_audit.ipynb</code> cell-4c), after development was frozen;
+  its metrics are committed to <code>ml09_validation_audit.json</code>.</p>
+  <p><b>Leakage controls.</b> The timeline is drawn: every feature aggregate is <code>report_date &lt; D</code>, freshness
+  uses <code>content_updated_date &lt; D</code> only. No product flags. A <b>planted-leak test</b>: adding the label-window
+  column <code>imp_label</code> to the feature matrix and retraining moves average precision from 0.15 to 0.56 &mdash;
+  the harness catches it; the column is then removed and the honest number kept. No scored feature correlates with the
+  label above 0.11 in absolute value.</p>
+</section>
+
+<section>
+  <h2>5&nbsp;&nbsp;Results</h2>
+
+  <table>
+    <caption><b>Table 1.</b> Grouped 5-fold cross-validation at D = 2026-03-01, base rate <b>0.045</b>. Means across five
+    client-held-out folds. The learned rankers roughly double the frozen rule; the tree does not clear the noise.</caption>
+    <thead><tr><th>ranker</th><th class="num">precision@50</th><th class="num">precision@5%</th>
+      <th class="num">avg&nbsp;precision</th><th class="num">ROC-AUC</th><th class="num">per-client&nbsp;p@10</th></tr></thead>
+    <tbody>
+      <tr><td>random</td><td class="num">0.064</td><td class="num">0.077</td><td class="num">0.081</td><td class="num">0.499</td><td class="num">0.133</td></tr>
+      <tr><td>stale-visible rule</td><td class="num">0.088</td><td class="num">0.087</td><td class="num">0.082</td><td class="num">0.501</td><td class="num">0.153</td></tr>
+      <tr><td><b>frozen hand-rule</b></td><td class="num">0.116</td><td class="num">0.105</td><td class="num">0.088</td><td class="num">0.490</td><td class="num">0.212</td></tr>
+      <tr><td>dummy (prior)</td><td class="num">0.064</td><td class="num">0.086</td><td class="num">0.080</td><td class="num">0.500</td><td class="num">0.129</td></tr>
+      <tr><td><b>logistic regression</b></td><td class="num">0.228</td><td class="num">0.224</td><td class="num">0.150</td><td class="num">0.612</td><td class="num">0.236</td></tr>
+      <tr><td>decision tree (depth 3)</td><td class="num">0.084</td><td class="num">0.098</td><td class="num">0.090</td><td class="num">0.537</td><td class="num">0.150</td></tr>
+      <tr><td><b>random forest</b></td><td class="num">0.212</td><td class="num">0.217</td><td class="num">0.152</td><td class="num">0.643</td><td class="num">0.269</td></tr>
+    </tbody>
+  </table>
+
+  <figure>
+    <img src="fig1_precision_at_k.png" alt="Precision at K for the blended model score, the frozen rule, and random ranking, on grouped out-of-fold data, with the base rate marked at 0.045.">
+    <figcaption><b>Figure 1.</b> Queue precision versus depth (grouped out-of-fold, D = 2026-03-01). The model-plus-rule
+    blend beats the frozen rule at almost every queue depth, and both beat random &mdash; but all sit far below what a
+    100-impression base rate of 4.5% would make "good" feel like.</figcaption>
+  </figure>
+
+  <h3>5.1&nbsp;&nbsp;The baseline that looked perfect</h3>
+  <p>On the <i>contaminated</i> slice, before the label-quality fix, the frozen hand-rule scored precision@50 = <b>0.98</b>
+  &mdash; and its top-50 was 98% one client's data dropout. On the cleaned, client-grouped slice the same rule scores
+  precision@50 = 0.12. The headline was an artifact.</p>
+  <h3>5.2&nbsp;&nbsp;The intuitive heuristic is worse than random</h3>
+  <p>Ranking by "biggest recent drop" &mdash; the obvious watchlist &mdash; scores average precision <i>below</i> the base
+  rate in the development month. A page that just dropped tends to bounce; the naive list is buying mean reversion.</p>
+  <h3>5.3&nbsp;&nbsp;Random split versus grouped split</h3>
+  <p>The same random forest scores average precision 0.199 / ROC-AUC 0.808 under a <i>random</i> 5-fold split, versus
+  0.149 / 0.650 grouped; its fold-to-fold spread tightens from &plusmn;0.15 to &plusmn;0.02. The random split reports a
+  falsely confident number and hides the between-client variance. Its train-versus-out-of-fold gap (average precision
+  0.33 vs 0.15) shows some client-specific memorisation, expected with ~18 training clients per fold.</p>
+  <h3>5.4&nbsp;&nbsp;Time-forward and the sealed month</h3>
+  <p>At the higher April and May base rates (0.22, 0.20) the March-trained random forest holds up: average precision
+  0.34 and 0.24, above the frozen rule (0.22, 0.25) and roughly level with the naive heuristic. On the <b>sealed June
+  2026</b> month (base rate 0.345, read once) the random forest reaches average precision <b>0.44</b> versus random 0.34
+  and the frozen rule 0.39 &mdash; it beats both &mdash; but the one-line "already-dipping" heuristic also scores 0.44.
+  The model's ordering survives a blind month; its margin over a one-liner does not.</p>
+</section>
+
+<section>
+  <h2>6&nbsp;&nbsp;Limitations</h2>
+  <ul>
+    <li><b>Churn-censored population.</b> Clients absent from a label month are dropped (the exclusion uses outcome-window
+    information). Results describe surviving portfolios; nothing here speaks to a client mid-offboarding.</li>
+    <li><b>GSC-visible, above-floor pages only.</b> A page needs &ge; 100 impressions / 30 d to enter. Absence from the
+    queue is not evidence a page is healthy &mdash; it may be below the floor or invisible to Search Console.</li>
+    <li><b>One content operation, one ~17-month snapshot, no causal design.</b> Nothing here shows that refreshing a
+    flagged page changes its outcome; the model predicts nothing about whether an intervention works.</li>
+    <li><b>The label base rate is non-stationary.</b> It moved 0.045 &rarr; 0.219 &rarr; 0.198 &rarr; 0.345 over four
+    months (Figure 2) because it tracks the panel-wide impressions trend, not a fixed decline frequency. So precision@K is
+    not comparable across months, and the score is not a calibrated probability &mdash; it is a "model score" only.</li>
+    <li><b>Wide per-client and per-fold variance.</b> Per-fold precision@50 spans 0.04 to 0.50. The queue works well for
+    some client books and barely at all for others; the per-client number is the honest one.</li>
+    <li><b>One walk-forward direction, one sealed month.</b> A longer multi-window backtest is the highest-value missing
+    experiment.</li>
+  </ul>
+  <figure>
+    <img src="fig2_base_rate_drift.png" alt="The label base rate by month from March to June 2026, rising from 0.045 to 0.345, with a shaded band around the training base rate of 0.045 plus or minus 0.05.">
+    <figcaption><b>Figure 2.</b> The label base rate by month. Only the training month sits inside a &plusmn;0.05 band; a
+    monthly outcome-drift alarm trips in three of the four months. The label is a panel-trend statistic.</figcaption>
+  </figure>
+</section>
+
+<section>
+  <h2>7&nbsp;&nbsp;Ranked recommendations</h2>
+  <p>The output is an <b>action playbook</b>: a queue of all 58,583 eligible pages scored by
+  <code>final_score = 100 &middot; (0.70 &middot; model_out-of-fold_score + 0.30 &middot; frozen-rule_percentile)</code>
+  &mdash; the model we do not fully trust is anchored to a rule an editor can read.</p>
+  <ul>
+    <li><b>Reason codes and a suggested action on every row</b> &mdash; <code>refresh</code> (43),
+    <code>review_position</code> (5,637), <code>review_metadata</code> (3), <code>monitor</code> (20,885),
+    <code>monitor_only</code> (31,944), <code>watchlist</code> (71).</li>
+    <li><b>Three confidence tiers</b> &mdash; high 804 / medium 28,489 / low 29,290. "high" is deliberately hard: a
+    top-20% score <i>and</i> real volume <i>and</i> model-plus-rule agreement <i>and</i> no policy hold.</li>
+    <li><b>Two policy holds from the error analysis</b> &mdash; <code>durable_riser_hold</code> (traffic is actually
+    rising &rarr; never refresh, route to monitor) and <code>low_volume_position_only</code> (position noise on a small
+    page &rarr; watchlist). About fifteen of the top fifty are held for human judgement before an editor sees them.</li>
+    <li><b>An 8-item no-go list</b> &mdash; never auto-edit; never refresh a riser; never act on position noise alone;
+    never present the score as "this page will decline"; never claim a refresh prevents a decline; never rank across
+    clients without per-client context; never run the queue while the drift alarm is tripped; never call the score a
+    probability.</li>
+    <li><b>Monitoring</b> &mdash; an outcome-drift alarm (recompute the label base rate monthly against 0.045) that trips
+    in three of four months, and a Population Stability Index harness (<code>content_age_days</code>, the model's top
+    feature, shows major drift by May). A tripped trigger pauses the next weekly queue pending human re-review and a
+    refit; it never rescinds actions already taken.</li>
+  </ul>
+  <div class="verdict">The evidence supports <b>testing this ordering as decision support</b>. It does not support
+  automating actions.</div>
+</section>
+
+<section>
+  <h2>8&nbsp;&nbsp;Reproducibility</h2>
+  <pre>Environment:  Python 3.12 &middot; scikit-learn 1.9.0 &middot; numpy 2.5.1 &middot; pandas 3.0.5
+              duckdb 1.5.5 &middot; matplotlib 3.11.1 &middot; seed 42 (every stochastic component)
+
+Run (fresh clone):
+  1. HF READ token for FlyRank/internship-warehouse -> .env at repo root (HF_TOKEN=hf_...)
+  2. run work/notebooks/w03_data_contract.ipynb ... w07_action_playbook.ipynb in order
+     (each writes its work/outputs/mlXX_*.json receipt)
+  3. work/notebooks/capstone.ipynb runs OFFLINE from the committed receipts + figures
+     and reproduces every number on this page</pre>
+  <table>
+    <caption><b>Table 2.</b> Result-to-notebook map. Every reported number regenerates from a committed receipt.</caption>
+    <thead><tr><th>result</th><th>regenerated by</th></tr></thead>
+    <tbody>
+      <tr><td>data contract / eligibility funnel</td><td><code>w03_data_contract.ipynb &rarr; ml04_contract_checks.json</code></td></tr>
+      <tr><td>frozen baseline metrics</td><td><code>w04_baseline_score.ipynb &rarr; ml07_baseline_metrics.json</code></td></tr>
+      <tr><td>Table 1 (grouped 5-fold comparison)</td><td><code>w05_model.ipynb &rarr; ml08_model_comparison.json</code></td></tr>
+      <tr><td>random-vs-grouped, walk-forward, sealed June</td><td><code>w06_validation_audit.ipynb (cell-4c reads June once) &rarr; ml09_validation_audit.json</code></td></tr>
+      <tr><td>Figure 1, Figure 2</td><td><code>w07_action_playbook.ipynb exports cell &rarr; work/figures/*.png</code></td></tr>
+      <tr><td>action queue + playbook</td><td><code>w07_action_playbook.ipynb final cell &rarr; ml10_playbook.json</code></td></tr>
+    </tbody>
+  </table>
+  <p>The sealed-evaluation receipts are both committed: the frame builder is
+  <code>w06_validation_audit.ipynb</code> cell-4c (the only cell that reads <code>month=2026-06</code>), and the metrics
+  file is <code>ml09_validation_audit.json</code>. "Evaluated once, blind" is checkable from the repository, not taken on
+  faith.</p>
+</section>
+
+<section class="ack">
+  <h2>Acknowledgments and data credit</h2>
+  <p>Built on the <b>FlyRank ML Internship dataset</b> &mdash; <a href="https://flyrank.ai">flyrank.ai</a>. Crediting the
+  data source is standard research practice and a required section; it does not replace citations.</p>
+  <h3>References</h3>
+  <ul>
+    <li><a href="https://developers.google.com/machine-learning/guides/rules-of-ml">Google &middot; Rules of Machine Learning</a></li>
+    <li><a href="https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GroupKFold.html">scikit-learn &middot; GroupKFold</a></li>
+    <li><a href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html">scikit-learn &middot; RandomForestClassifier</a></li>
+    <li><a href="https://github.com/ashishpal003/flyrank_ml_intern">Source repository and executed notebooks</a></li>
+  </ul>
+</section>
+
+</div>
+</body>
+</html>
