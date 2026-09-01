@@ -1,0 +1,239 @@
+{
+  "decision_date_dev": "2026-03-01",
+  "seed": 42,
+  "library_versions": {
+    "scikit-learn": "1.9.0",
+    "numpy": "2.5.1",
+    "pandas": "3.0.5"
+  },
+  "dev_base_rate": 0.045,
+  "random_vs_grouped": [
+    {
+      "split": "random",
+      "model": "logistic_regression",
+      "precision@50": "0.304 [0.22,0.50]",
+      "avg_precision": "0.130 [0.11,0.15]",
+      "roc_auc": "0.732 [0.72,0.75]"
+    },
+    {
+      "split": "random",
+      "model": "random_forest",
+      "precision@50": "0.396 [0.26,0.46]",
+      "avg_precision": "0.199 [0.17,0.22]",
+      "roc_auc": "0.808 [0.79,0.83]"
+    },
+    {
+      "split": "grouped",
+      "model": "logistic_regression",
+      "precision@50": "0.228 [0.04,0.50]",
+      "avg_precision": "0.150 [0.02,0.37]",
+      "roc_auc": "0.612 [0.51,0.69]"
+    },
+    {
+      "split": "grouped",
+      "model": "random_forest",
+      "precision@50": "0.216 [0.04,0.42]",
+      "avg_precision": "0.149 [0.04,0.35]",
+      "roc_auc": "0.650 [0.52,0.70]"
+    }
+  ],
+  "random_minus_grouped_ap_gap": {
+    "logistic_regression": -0.0202,
+    "random_forest": 0.0494
+  },
+  "walk_forward": [
+    {
+      "D": "2026-04-01",
+      "ranker": "logistic_regression",
+      "base_rate": 0.2191,
+      "precision@50": 0.32,
+      "precision@5%": 0.309,
+      "avg_precision": 0.292,
+      "per_client_p@10": 0.355
+    },
+    {
+      "D": "2026-04-01",
+      "ranker": "random_forest",
+      "base_rate": 0.2191,
+      "precision@50": 0.56,
+      "precision@5%": 0.416,
+      "avg_precision": 0.344,
+      "per_client_p@10": 0.39
+    },
+    {
+      "D": "2026-04-01",
+      "ranker": "baseline_rule",
+      "base_rate": 0.2191,
+      "precision@50": 0.24,
+      "precision@5%": 0.151,
+      "avg_precision": 0.216,
+      "per_client_p@10": 0.31
+    },
+    {
+      "D": "2026-04-01",
+      "ranker": "naive_already_dipping",
+      "base_rate": 0.2191,
+      "precision@50": 0.32,
+      "precision@5%": 0.392,
+      "avg_precision": 0.325,
+      "per_client_p@10": 0.4
+    },
+    {
+      "D": "2026-04-01",
+      "ranker": "random",
+      "base_rate": 0.2191,
+      "precision@50": 0.3,
+      "precision@5%": 0.223,
+      "avg_precision": 0.221,
+      "per_client_p@10": 0.325
+    },
+    {
+      "D": "2026-05-01",
+      "ranker": "logistic_regression",
+      "base_rate": 0.1985,
+      "precision@50": 0.4,
+      "precision@5%": 0.293,
+      "avg_precision": 0.231,
+      "per_client_p@10": 0.339
+    },
+    {
+      "D": "2026-05-01",
+      "ranker": "random_forest",
+      "base_rate": 0.1985,
+      "precision@50": 0.58,
+      "precision@5%": 0.333,
+      "avg_precision": 0.243,
+      "per_client_p@10": 0.461
+    },
+    {
+      "D": "2026-05-01",
+      "ranker": "baseline_rule",
+      "base_rate": 0.1985,
+      "precision@50": 0.3,
+      "precision@5%": 0.294,
+      "avg_precision": 0.247,
+      "per_client_p@10": 0.326
+    },
+    {
+      "D": "2026-05-01",
+      "ranker": "naive_already_dipping",
+      "base_rate": 0.1985,
+      "precision@50": 0.22,
+      "precision@5%": 0.237,
+      "avg_precision": 0.225,
+      "per_client_p@10": 0.287
+    },
+    {
+      "D": "2026-05-01",
+      "ranker": "random",
+      "base_rate": 0.1985,
+      "precision@50": 0.16,
+      "precision@5%": 0.19,
+      "avg_precision": 0.197,
+      "per_client_p@10": 0.274
+    }
+  ],
+  "sealed_june_2026": [
+    {
+      "D": "2026-06-01 (SEALED)",
+      "ranker": "logistic_regression",
+      "base_rate": 0.3452,
+      "precision@50": 0.18,
+      "precision@5%": 0.483,
+      "avg_precision": 0.426,
+      "per_client_p@10": 0.387
+    },
+    {
+      "D": "2026-06-01 (SEALED)",
+      "ranker": "random_forest",
+      "base_rate": 0.3452,
+      "precision@50": 0.44,
+      "precision@5%": 0.537,
+      "avg_precision": 0.437,
+      "per_client_p@10": 0.475
+    },
+    {
+      "D": "2026-06-01 (SEALED)",
+      "ranker": "baseline_rule",
+      "base_rate": 0.3452,
+      "precision@50": 0.3,
+      "precision@5%": 0.407,
+      "avg_precision": 0.385,
+      "per_client_p@10": 0.306
+    },
+    {
+      "D": "2026-06-01 (SEALED)",
+      "ranker": "naive_already_dipping",
+      "base_rate": 0.3452,
+      "precision@50": 0.38,
+      "precision@5%": 0.483,
+      "avg_precision": 0.437,
+      "per_client_p@10": 0.403
+    },
+    {
+      "D": "2026-06-01 (SEALED)",
+      "ranker": "random",
+      "base_rate": 0.3452,
+      "precision@50": 0.4,
+      "precision@5%": 0.34,
+      "avg_precision": 0.345,
+      "per_client_p@10": 0.328
+    }
+  ],
+  "sealed_june_base_rate": 0.3452,
+  "population_note": "churn-censored: clients with zero rows in a label month are excluded (ML-08 label-quality gate). GSC-visible pages with imp_last30 >= 100 only.",
+  "leakage_audit": {
+    "banned_columns_in_X": [],
+    "top_feature_corr_with_label": [
+      [
+        "has_word_count",
+        0.112
+      ],
+      [
+        "content_type_feedly article",
+        0.096
+      ],
+      [
+        "content_type_keyword article",
+        0.091
+      ]
+    ],
+    "planted_leak_avg_precision": {
+      "honest": 0.15,
+      "with_LEAK_imp_label": 0.564,
+      "delta": 0.414
+    },
+    "momentum_ablation_ap_drop": {
+      "logistic_regression": null,
+      "random_forest": null
+    }
+  },
+  "label_non_stationary": {
+    "base_rate_by_month": {
+      "2026-03": 0.045,
+      "2026-04": 0.219,
+      "2026-05": 0.198,
+      "2026-06": 0.345
+    },
+    "note": "label = label-month impressions < 75% of trailing-90d pace; base rate tracks the panel-wide impressions trend, not a fixed decline frequency. A monthly outcome-drift check is a deployment prerequisite."
+  },
+  "claims": {
+    "raw_bold_sentence": "the learned models roughly double the frozen baseline on every metric",
+    "holds_where": "in-period, grouped 5-fold CV, D=2026-03-01 (avg precision ~0.15 vs ~0.09 rule / ~0.08 random; base rate 0.045)",
+    "sealed_june": "random forest avg precision 0.43 vs random 0.34 and frozen rule 0.39, but level with a one-line \"already-dipping\" heuristic (0.44); June base rate 0.345 (dev 0.045)",
+    "publish_safe": [
+      "On one content operation at the 2026-03-01 decision point, a ranker on pre-decision GSC signals ordered a review queue whose top 5% held observed 30-day impressions declines at ~2x the rate of a frozen rule and of random, evaluated on unseen clients (grouped 5-fold; avg precision ~0.15; base rate 0.045).",
+      "Under one blind June-2026 evaluation the random forest ranking beat random and the frozen rule (avg precision 0.43 vs 0.34, 0.39) but not a one-line already-dipping heuristic (0.44); the June base rate was 0.345.",
+      "The label base rate is not stable (0.045 -> 0.345 across four months); precision@K is not comparable across months without an outcome-drift check.",
+      "Per-fold precision@50 spans 0.04-0.50. This is decision-support ranking of human review effort, not a per-page prediction and not evidence that a refresh changes an outcome. Population is churn-censored, GSC-visible pages >= 100 impressions/30d only."
+    ],
+    "source_map": {
+      "grouped-CV lift": "cell-4 split_table (grouped) + ml08_model_comparison.json",
+      "sealed June": "cell-4c sealed_df",
+      "walk-forward": "cell-4b walk_df",
+      "base-rate non-stationarity": "cell-4b panel trajectory + per-month base rates",
+      "fold variance": "cell-4 [min,max]",
+      "population": "assemble() -- churn-censored, >=100 impr/30d"
+    }
+  }
+}
