@@ -1,7 +1,7 @@
-# Capstone Report — Freestyle B: Decline Early-Warning
+# Capstone Report — Decline Early-Warning
 
 - **Author:** Ashish Pal
-- **Lane:** Freestyle B — decline early-warning for organic search traffic
+- **Lane:** decline early-warning for organic search traffic
 - **Repo:** https://github.com/ashishpal003/flyrank_ml_intern
 - **Date:** 2026-09-01
 
