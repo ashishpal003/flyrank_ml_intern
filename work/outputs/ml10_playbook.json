@@ -1,0 +1,112 @@
+{
+  "decision_date": "2026-03-01",
+  "seed": 42,
+  "queue_rows": 58583,
+  "base_rate": 0.045,
+  "library_versions": {
+    "scikit-learn": "1.9.0",
+    "numpy": "2.5.1",
+    "pandas": "3.0.5",
+    "matplotlib": "3.11.1"
+  },
+  "score_formula": "100 * (0.70 * model_oof_score + 0.30 * frozen_rule_percentile); model = ML-08 random forest, grouped OOF; frozen rule = 0.40*traffic_softening + 0.30*position_slip + 0.30*reach_thinning (ML-07). NOT a calibrated probability.",
+  "reason_code_taxonomy": {
+    "high_exposure": "imp_90d >= 500",
+    "traffic_softening": "imp_last30 < 0.8 * (imp_90d/3)",
+    "position_slipping": "avg position worsened >= 1.0, last 30d vs prior 60d",
+    "reach_thinning": "days_with_impressions fell >= 25%",
+    "stale_content": "days_since_update >= 180 (partial coverage)",
+    "model_high_risk": "model OOF score in the top 10%",
+    "model_and_rule_agree": "model_high_risk AND >= 2 rule codes",
+    "durable_riser_hold": "imp_last30 > 1.5 * pace -> monitor, never refresh",
+    "low_volume_position_only": "imp_90d < 250 AND only rule signal is position_slipping"
+  },
+  "suggested_action_map": "durable_riser_hold->monitor_only; low_volume_position_only->watchlist; traffic_softening|reach_thinning->refresh; position_slipping+high_exposure->review_position; stale_content only->review_metadata; else->monitor",
+  "confidence_tier_rules": "high: final_score>=P80 AND imp_90d>=500 AND model_oof>=0.5 AND >=2 rule codes AND no policy hold; medium: final_score>=P50; else low",
+  "no_go_list": [
+    "never auto-edit or auto-publish; every row keeps a human accept/reject",
+    "never refresh a durable_riser_hold",
+    "never act on low_volume_position_only on position alone",
+    "never present the score as \"this page will decline\"",
+    "never claim a refresh prevents decline",
+    "never rank across clients without per-client context",
+    "never run the queue while the base-rate alarm is tripped without re-review",
+    "never call final_score a probability (calibration not evaluated)"
+  ],
+  "monitoring": {
+    "outcome_drift_alarm": [
+      {
+        "month": "2026-03",
+        "base_rate": 0.045,
+        "abs_dev_from_train": 0.0,
+        "mom_change": null,
+        "ALARM": false
+      },
+      {
+        "month": "2026-04",
+        "base_rate": 0.219,
+        "abs_dev_from_train": 0.174,
+        "mom_change": 0.174,
+        "ALARM": true
+      },
+      {
+        "month": "2026-05",
+        "base_rate": 0.198,
+        "abs_dev_from_train": 0.153,
+        "mom_change": 0.021,
+        "ALARM": true
+      },
+      {
+        "month": "2026-06 (sealed, cited)",
+        "base_rate": 0.345,
+        "abs_dev_from_train": 0.3,
+        "mom_change": 0.147,
+        "ALARM": true
+      }
+    ],
+    "psi_feature_drift": [
+      {
+        "feature": "content_age_days",
+        "PSI Mar->Apr": 0.234,
+        "PSI Mar->May": 0.437
+      },
+      {
+        "feature": "softening_ratio",
+        "PSI Mar->Apr": 0.055,
+        "PSI Mar->May": 0.111
+      },
+      {
+        "feature": "pos_last30",
+        "PSI Mar->Apr": 0.164,
+        "PSI Mar->May": 0.308
+      }
+    ],
+    "proposed_not_implemented": [
+      "monthly refit",
+      "per-client precision@10 tracking",
+      "recently-optimised-page exclusion join at deployment"
+    ]
+  },
+  "queue_summary": {
+    "action_mix": {
+      "monitor_only": 31944,
+      "monitor": 20885,
+      "review_position": 5637,
+      "watchlist": 71,
+      "refresh": 43,
+      "review_metadata": 3
+    },
+    "confidence_mix": {
+      "low": 29290,
+      "medium": 28489,
+      "high": 804
+    },
+    "top20_oof_hit_rate": 0.25,
+    "top50_held_for_human_judgement": 15
+  },
+  "figures": [
+    "work/figures/fig1_precision_at_k.png",
+    "work/figures/fig2_base_rate_drift.png"
+  ],
+  "population_note": "churn-censored (clients absent from a label month excluded); GSC-visible pages with imp_last30 >= 100 only; one content operation; ~17-month snapshot; no causal claim."
+}
